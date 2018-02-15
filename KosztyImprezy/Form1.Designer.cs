@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.healthyBox = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
@@ -62,15 +62,15 @@
             this.checkBox1.Text = "Dekoracje fantazyjne";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // healthyBox
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(13, 107);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(91, 17);
-            this.checkBox2.TabIndex = 3;
-            this.checkBox2.Text = "Opcja zdrowa";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.healthyBox.AutoSize = true;
+            this.healthyBox.Location = new System.Drawing.Point(13, 107);
+            this.healthyBox.Name = "healthyBox";
+            this.healthyBox.Size = new System.Drawing.Size(91, 17);
+            this.healthyBox.TabIndex = 3;
+            this.healthyBox.Text = "Opcja zdrowa";
+            this.healthyBox.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -87,7 +87,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.healthyBox);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label1);
@@ -104,7 +104,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox healthyBox;
         private System.Windows.Forms.Label label2;
     }
 }
