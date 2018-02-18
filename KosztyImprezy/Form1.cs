@@ -19,15 +19,33 @@ namespace KosztyImprezy
             dinnerParty = new DinnerParty() { NumberOfPeople = 5 };
             dinnerParty.SetHealthyOption(false);
             dinnerParty.CalculateCostOfDecoration(true);
-            DisplayDinnerParty();
+            DisplayDinnerPartyCost();
         }
 
         private void DisplayDinnerPartyCost()
         {
             decimal Cost = dinnerParty.CalculateCost(healthyBox.Checked);
+            costLabel.Text = Cost.ToString("c");
 
         }
 
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            dinnerParty.NumberOfPeople = (int)numericUpDown1.Value;
+            DisplayDinnerPartyCost();
+        }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            dinnerParty.CalculateCostOfDecoration(true);
+            DisplayDinnerPartyCost();
+        }
+
+        private void healthyBox_CheckedChanged(object sender, EventArgs e)
+        {
+            dinnerParty.SetHealthyOption(true);
+            DisplayDinnerPartyCost();
+
+        }
     }
 }

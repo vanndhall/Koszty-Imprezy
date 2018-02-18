@@ -33,6 +33,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.healthyBox = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.costLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,16 +52,20 @@
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown1.TabIndex = 1;
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox1.Location = new System.Drawing.Point(13, 83);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(126, 17);
             this.checkBox1.TabIndex = 2;
             this.checkBox1.Text = "Dekoracje fantazyjne";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // healthyBox
             // 
@@ -71,6 +76,7 @@
             this.healthyBox.TabIndex = 3;
             this.healthyBox.Text = "Opcja zdrowa";
             this.healthyBox.UseVisualStyleBackColor = true;
+            this.healthyBox.CheckedChanged += new System.EventHandler(this.healthyBox_CheckedChanged);
             // 
             // label2
             // 
@@ -81,11 +87,21 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Koszt";
             // 
+            // costLabel
+            // 
+            this.costLabel.AutoSize = true;
+            this.costLabel.Location = new System.Drawing.Point(69, 142);
+            this.costLabel.Name = "costLabel";
+            this.costLabel.Size = new System.Drawing.Size(35, 13);
+            this.costLabel.TabIndex = 5;
+            this.costLabel.Text = "label3";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(215, 197);
+            this.Controls.Add(this.costLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.healthyBox);
             this.Controls.Add(this.checkBox1);
@@ -106,6 +122,7 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox healthyBox;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label costLabel;
     }
 }
 
