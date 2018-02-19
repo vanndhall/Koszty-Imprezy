@@ -35,15 +35,15 @@ namespace KosztyImprezy
             DisplayDinnerPartyCost();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void fancyBox_CheckedChanged(object sender, EventArgs e)
         {
-            dinnerParty.CalculateCostOfDecoration(true);
+            dinnerParty.CalculateCostOfDecoration(fancyBox.Checked);
             DisplayDinnerPartyCost();
         }
 
         private void healthyBox_CheckedChanged(object sender, EventArgs e)
         {
-            dinnerParty.SetHealthyOption(true);
+            dinnerParty.SetHealthyOption(healthyBox.Checked);
             DisplayDinnerPartyCost();
 
         }
