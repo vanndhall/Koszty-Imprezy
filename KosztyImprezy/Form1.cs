@@ -16,36 +16,35 @@ namespace KosztyImprezy
         public Form1()
         {
             InitializeComponent();
-            dinnerParty = new DinnerParty() { NumberOfPeople = 5 };
-            dinnerParty.SetHealthyOption(false);
-            dinnerParty.CalculateCostOfDecoration(true);
+            dinnerParty = new DinnerParty((int)numericUpDown1.Value, healthyBox.Checked, fancyBox.Checked); // wywołanie konstruktora klasy DinnerParty oraz przeslanie argumentow z checkboxów do tegoż konstruktora
+            DisplayDinnerPartyCost(); // wyświetlenie /aktualizacja
+        }
+        //zdarzenie checkboxa fantazyjnej dekoracji
+        private void fancyBox_CheckedChanged(object sender, EventArgs e)
+        {
+            dinnerParty.FancyDecorations = fancyBox.Checked;
             DisplayDinnerPartyCost();
         }
-
-        private void DisplayDinnerPartyCost()
+        //zdarzenie  checkboxa zdrowej opcji
+        private void healthyBox_CheckedChanged(object sender, EventArgs e)
         {
-            decimal Cost = dinnerParty.CalculateCost(healthyBox.Checked);
-            costLabel.Text = Cost.ToString("c");
+            dinnerParty.HealthyOption = healthyBox.Checked;
+            DisplayDinnerPartyCost();
 
         }
-
+        //zdarzenie zmiany liczby osób
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             dinnerParty.NumberOfPeople = (int)numericUpDown1.Value;
             DisplayDinnerPartyCost();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            dinnerParty.CalculateCostOfDecoration(true);
-            DisplayDinnerPartyCost();
-        }
 
-        private void healthyBox_CheckedChanged(object sender, EventArgs e)
-        {
-            dinnerParty.SetHealthyOption(true);
-            DisplayDinnerPartyCost();
 
+        private void DisplayDinnerPartyCost()
+        {
+            decimal Cost = dinnerParty.Cost;
+            costLabel.Text = Cost.ToString("c");
         }
     }
 }

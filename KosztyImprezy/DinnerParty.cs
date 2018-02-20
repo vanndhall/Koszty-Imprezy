@@ -10,47 +10,64 @@ namespace KosztyImprezy
     {
         public const int CostOfFoodPerPerson = 25;
         
-
+        // własności
         public int NumberOfPeople { get; set; }
-        public decimal CostOfBeveragesPerPerson { get; set; }
-        public decimal CostOfDecorations = 0;
+        public bool FancyDecorations { get; set; }
+        public bool HealthyOption { get; set; }
 
-
-        public void SetHealthyOption(bool healthyOption)
+        //Konsturktor aktualizujący własności^^
+        public DinnerParty(int numberOfPeople, bool healthyOtion, bool fancyDecorations)
         {
-            if(healthyOption)
-            {
-                CostOfBeveragesPerPerson = 5.00M;
-            }
-            else
-            {
-                CostOfBeveragesPerPerson = 20.00M;
-            }
-        }
-        public void CalculateCostOfDecoration(bool fancy)
-        {
-            if(fancy)
-            {
-                CostOfDecorations = (NumberOfPeople * 15.00M) + 50M;
-            }
-            else
-            {
-                CostOfDecorations = (NumberOfPeople * 7.50M) + 30M;
-            }
+            NumberOfPeople = numberOfPeople;
+            FancyDecorations = fancyDecorations;
+            HealthyOption = healthyOtion;
         }
 
-        public decimal CalculateCost(bool healthyOtion)
+        // Metoda prywatna obliczająca koszt dekoracji
+        decimal CalculateCostOfDecorations()
         {
-            decimal totalCost = CostOfDecorations + ((CostOfBeveragesPerPerson + CostOfFoodPerPerson) * NumberOfPeople);
-            if(healthyOtion)
+            decimal costOfDecorations;
+            if(FancyDecorations)
             {
-                return totalCost * .95M;
+                costOfDecorations = (NumberOfPeople * 15.00M) + 50M;
             }
             else
             {
+                costOfDecorations = (NumberOfPeople * 7.50M) + 30M;
+            }
+            return costOfDecorations;
+
+        }
+        //Metoda prywatna obliczająca koszt napoju za osobę
+        decimal CalculateCostOfBeveragesPerPerson()
+        {
+            decimal costOfBeveragesPerPerson;
+            if(HealthyOption)
+            {
+                costOfBeveragesPerPerson = 5.00M;
+            }
+            else
+            {
+                costOfBeveragesPerPerson = 20.00M;
+            }
+            return costOfBeveragesPerPerson;
+        }
+        //własność/metoda publiczna obliczająca koszt imprezy.
+        public decimal Cost
+        {
+            get
+            {
+                decimal totalCost = CalculateCostOfDecorations();
+                totalCost += ((CalculateCostOfBeveragesPerPerson() + CostOfFoodPerPerson) * NumberOfPeople);
+                if(HealthyOption)
+                {
+                    totalCost *= .95M;
+                }
                 return totalCost;
             }
 
         }
+
+
     }
 }
