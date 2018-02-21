@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.fancyBox = new System.Windows.Forms.CheckBox();
+            this.fancy = new System.Windows.Forms.CheckBox();
             this.healthyBox = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.costLabel = new System.Windows.Forms.Label();
@@ -52,19 +52,20 @@
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown1.TabIndex = 1;
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
-            // fancyBox
+            // fancy
             // 
-            this.fancyBox.AutoSize = true;
-            this.fancyBox.Checked = true;
-            this.fancyBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.fancyBox.Location = new System.Drawing.Point(13, 83);
-            this.fancyBox.Name = "fancyBox";
-            this.fancyBox.Size = new System.Drawing.Size(126, 17);
-            this.fancyBox.TabIndex = 2;
-            this.fancyBox.Text = "Dekoracje fantazyjne";
-            this.fancyBox.UseVisualStyleBackColor = true;
-            this.fancyBox.CheckedChanged += new System.EventHandler(this.fancyBox_CheckedChanged);
+            this.fancy.AutoSize = true;
+            this.fancy.Checked = true;
+            this.fancy.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.fancy.Location = new System.Drawing.Point(13, 83);
+            this.fancy.Name = "fancy";
+            this.fancy.Size = new System.Drawing.Size(126, 17);
+            this.fancy.TabIndex = 2;
+            this.fancy.Text = "Dekoracje fantazyjne";
+            this.fancy.UseVisualStyleBackColor = true;
+            this.fancy.CheckedChanged += new System.EventHandler(this.fancy_CheckedChanged);
             // 
             // healthyBox
             // 
@@ -89,9 +90,11 @@
             // costLabel
             // 
             this.costLabel.AutoSize = true;
+            this.costLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.costLabel.ForeColor = System.Drawing.Color.DarkGreen;
             this.costLabel.Location = new System.Drawing.Point(69, 142);
             this.costLabel.Name = "costLabel";
-            this.costLabel.Size = new System.Drawing.Size(35, 13);
+            this.costLabel.Size = new System.Drawing.Size(51, 16);
             this.costLabel.TabIndex = 5;
             this.costLabel.Text = "label3";
             // 
@@ -99,15 +102,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(215, 197);
+            this.ClientSize = new System.Drawing.Size(152, 197);
             this.Controls.Add(this.costLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.healthyBox);
-            this.Controls.Add(this.fancyBox);
+            this.Controls.Add(this.fancy);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Koszt Imprezy";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -118,7 +122,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.CheckBox fancyBox;
+        private System.Windows.Forms.CheckBox fancy;
         private System.Windows.Forms.CheckBox healthyBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label costLabel;

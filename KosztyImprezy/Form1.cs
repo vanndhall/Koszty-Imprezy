@@ -16,13 +16,13 @@ namespace KosztyImprezy
         public Form1()
         {
             InitializeComponent();
-            dinnerParty = new DinnerParty((int)numericUpDown1.Value, healthyBox.Checked, fancyBox.Checked); // wywołanie konstruktora klasy DinnerParty oraz przeslanie argumentow z checkboxów do tegoż konstruktora
+            dinnerParty = new DinnerParty((int)numericUpDown1.Value, healthyBox.Checked, fancy.Checked); // wywołanie konstruktora klasy DinnerParty oraz przeslanie argumentow z checkboxów do tegoż konstruktora
             DisplayDinnerPartyCost(); // wyświetlenie /aktualizacja
         }
         //zdarzenie checkboxa fantazyjnej dekoracji
-        private void fancyBox_CheckedChanged(object sender, EventArgs e)
+        private void fancy_CheckedChanged(object sender, EventArgs e)
         {
-            dinnerParty.FancyDecorations = fancyBox.Checked;
+            dinnerParty.FancyDecorations = fancy.Checked;
             DisplayDinnerPartyCost();
         }
         //zdarzenie  checkboxa zdrowej opcji
