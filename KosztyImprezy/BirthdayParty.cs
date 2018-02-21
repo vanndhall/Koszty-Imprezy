@@ -70,6 +70,22 @@ namespace KosztyImprezy
             return costOfDecorations;
         }
 
+        public decimal Cost
+        {
+            get
+            {
+                decimal totalCost = CalculateCostOfDecorations();
+                totalCost += CostOfFoodPerPerson * NumberOfPeople;
+                decimal cakeCost;
+                if (CakeSize() == 20)
+                    cakeCost = 40M + ActualLength * .25M;
+                else
+                    cakeCost = 75M + ActualLength * .25M;
+                return
+                    totalCost + cakeCost;
+            }
+        }
+
 
     }
 }
